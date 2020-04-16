@@ -1,13 +1,10 @@
-const express = require('express');
-const helmet = require('helmet');
+const express = require("express");
 
-const db = require('./data/db-config.js')
+const RecipeRouter = require("./recipes/recipe-router.js");
 
 const server = express();
 
-server.use(helmet());
 server.use(express.json());
-
-
+server.use("/api/recipes", RecipeRouter);
 
 module.exports = server;
